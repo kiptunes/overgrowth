@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1fn5bla4ak4m"]
+
+[ext_resource type="Script" uid="uid://b0y4jrf810l1f" path="res://src/scrn/transition/transition.gd" id="1_5f02e"]
+
+[node name="Transition" type="CanvasLayer" unique_id=734273347]
+script = ExtResource("1_5f02e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=353275645]

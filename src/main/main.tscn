@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://g3nlfb2frfll"]
+
+[ext_resource type="Script" uid="uid://fqw6bcdp4pjw" path="res://src/main/main.gd" id="1_3s6yk"]
+[ext_resource type="PackedScene" uid="uid://cedk1nhvw308l" path="res://src/world/world.tscn" id="2_ab7mr"]
+[ext_resource type="PackedScene" uid="uid://d1fn5bla4ak4m" path="res://src/scrn/transition/transition.tscn" id="3_ab7mr"]
+
+[node name="Main" type="Node" unique_id=1663880116]
+script = ExtResource("1_3s6yk")
+
+[node name="World" parent="." unique_id=338009636 instance=ExtResource("2_ab7mr")]
+
+[node name="UI" type="Control" parent="." unique_id=1830030880]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Transition" parent="UI" unique_id=734273347 instance=ExtResource("3_ab7mr")]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://betjo4ety1bsu"]
+
+[ext_resource type="Script" uid="uid://lf2xajliw3op" path="res://src/obj/key/key.gd" id="1_tqlyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jrsr"]
+
+[node name="Key" type="Area2D" unique_id=632913434]
+script = ExtResource("1_tqlyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1266357247]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1385630286]
+shape = SubResource("RectangleShape2D_3jrsr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

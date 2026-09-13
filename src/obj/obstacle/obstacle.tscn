@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8mol6f7r40j7"]
+
+[ext_resource type="Script" uid="uid://d3tptrflfbmnr" path="res://src/obj/obstacle/obstacle.gd" id="1_tk3xx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77frk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jrsr"]
+
+[node name="Obstacle" type="Area2D" unique_id=2143431005]
+script = ExtResource("1_tk3xx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1346657949]
+shape = SubResource("CircleShape2D_77frk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1042754599]
+sprite_frames = SubResource("SpriteFrames_3jrsr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
