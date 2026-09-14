@@ -2,6 +2,13 @@ extends CanvasLayer
 
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	animationPlayer.play("RESET")
+	hide()
+
+func transition(fill: bool) -> void:
+	var animation = "transition_cover" if fill else "transition_uncover"
+	if fill: visible = true
+	animationPlayer.play(animation)
+	await animationPlayer.animation_finished
+	if not fill: visible = false

@@ -1,9 +1,88 @@
 [gd_scene format=3 uid="uid://bpe6ufudx7mxw"]
 
+[ext_resource type="Script" uid="uid://bqy3ribkbs851" path="res://src/scrn/pause_menu/pause_menu.gd" id="1_b14id"]
+[ext_resource type="Theme" uid="uid://cx74wks7mac3v" path="res://assets/ui/theme/main_theme.tres" id="2_64j2j"]
+
 [node name="PauseMenu" type="Control" unique_id=1618946627]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b14id")
+
+[node name="Panel" type="Panel" parent="." unique_id=1579072174]
+custom_minimum_size = Vector2(160, 84)
+custom_maximum_size = Vector2(-1, 84)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 160.0
+offset_bottom = 84.0
+grow_vertical = 0
+theme = ExtResource("2_64j2j")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=511823799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1778709304]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=205187650]
+layout_mode = 2
+theme = ExtResource("2_64j2j")
+text = "PAUSED"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=392612299]
+layout_mode = 2
+theme = ExtResource("2_64j2j")
+
+[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1484731241]
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../LvlSelectButton")
+focus_neighbor_bottom = NodePath("../LvlSelectButton")
+focus_next = NodePath("../LvlSelectButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("2_64j2j")
+text = "resume"
+
+[node name="LvlSelectButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1599986987]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ResumeButton")
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../ResumeButton")
+theme = ExtResource("2_64j2j")
+text = "levels"
+
+[node name="QuitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1634495535]
+layout_mode = 2
+focus_neighbor_left = NodePath("../LvlSelectButton")
+focus_neighbor_top = NodePath("../LvlSelectButton")
+focus_neighbor_right = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../LvlSelectButton")
+theme = ExtResource("2_64j2j")
+text = "quit"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/LvlSelectButton" to="." method="_on_lvl_select_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

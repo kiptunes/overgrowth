@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://cedk1nhvw308l"]
 
 [ext_resource type="PackedScene" uid="uid://chtdiy4gsks2d" path="res://src/entities/camera/camera.tscn" id="1_1k4gi"]
+[ext_resource type="Script" uid="uid://cchegbldlgpr1" path="res://src/world/world.gd" id="1_bsf3i"]
 [ext_resource type="PackedScene" uid="uid://dvrf0ghnk5f1g" path="res://src/player/player.tscn" id="2_6fy3g"]
 
 [node name="World" type="Node2D" unique_id=338009636]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=560542969]
-offset_left = -45.0
-offset_top = -36.0
-offset_right = 208.0
-offset_bottom = 181.0
+script = ExtResource("1_bsf3i")
 
 [node name="Camera" parent="." unique_id=1179717138 instance=ExtResource("1_1k4gi")]
 offset = Vector2(80, 72)
 
 [node name="Player" parent="." unique_id=1518652077 instance=ExtResource("2_6fy3g")]
+z_index = 1
+z_as_relative = false
+position = Vector2(40, 72)

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://7jvvjedg3sbk"]
+
+[ext_resource type="Theme" uid="uid://cx74wks7mac3v" path="res://assets/ui/theme/main_theme.tres" id="1_85lod"]
+[ext_resource type="Texture2D" uid="uid://cgxd3tcn85m7c" path="res://assets/sprites/player/player_spritesheet.png" id="2_2cup5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppkqi"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(0, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wpwb"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(12, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m536"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(24, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpqan"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(36, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvsbt"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(48, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufhut"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(60, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8rpq"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(72, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou1lm"]
+atlas = ExtResource("2_2cup5")
+region = Rect2(84, 36, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jrsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppkqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wpwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m536")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_bpqan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvsbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufhut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8rpq")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ou1lm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="EndScreen" type="Control" unique_id=807187509]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1986567018]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.011764706, 0.078431375, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=100231526]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1927796529]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1214070100]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme = ExtResource("1_85lod")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=3.0]That's all![/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1047184432]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=22968915]
+position = Vector2(48, 8)
+sprite_frames = SubResource("SpriteFrames_3jrsr")
+autoplay = "default"
+frame_progress = 0.39424023
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1730530892]
+custom_maximum_size = Vector2(140, -1)
+layout_mode = 2
+theme = ExtResource("1_85lod")
+theme_override_font_sizes/font_size = 6
+text = "Thank you for playing my silly little game :)"
+horizontal_alignment = 1
+autowrap_mode = 2

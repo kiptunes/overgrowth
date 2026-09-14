@@ -1,10 +1,60 @@
 [gd_scene format=3 uid="uid://c8mol6f7r40j7"]
 
 [ext_resource type="Script" uid="uid://d3tptrflfbmnr" path="res://src/obj/obstacle/obstacle.gd" id="1_tk3xx"]
+[ext_resource type="Texture2D" uid="uid://b5phjs5y5dp5d" path="res://assets/sprites/obj/obstacle_spritesheet.png" id="2_1lqih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77frk"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c8sc"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oejeh"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umndh"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2sfv"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j7y6"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lppt"]
+atlas = ExtResource("2_1lqih")
+region = Rect2(60, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jrsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c8sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oejeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2sfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j7y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lppt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Obstacle" type="Area2D" unique_id=2143431005]
 script = ExtResource("1_tk3xx")
@@ -14,5 +64,6 @@ shape = SubResource("CircleShape2D_77frk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1042754599]
 sprite_frames = SubResource("SpriteFrames_3jrsr")
+frame_progress = 0.48705766
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

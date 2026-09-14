@@ -1,17 +1,53 @@
 [gd_scene format=3 uid="uid://cuurifhds2apf"]
 
 [ext_resource type="Script" uid="uid://brcqk67v6lapc" path="res://src/obj/door/door.gd" id="1_nrij5"]
+[ext_resource type="Texture2D" uid="uid://mq5y1karqpsf" path="res://assets/sprites/obj/door.png" id="2_sxvgs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jrsr"]
+size = Vector2(12, 11)
+
+[sub_resource type="DPITexture" id="DPITexture_3jrsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceeya"]
+atlas = ExtResource("2_sxvgs")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bigav"]
+atlas = ExtResource("2_sxvgs")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jrsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceeya")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bigav")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="Door" type="Area2D" unique_id=983944967]
 script = ExtResource("1_nrij5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1437500852]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373873825]
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_3jrsr")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1935217764]
 emitting = false
+texture = SubResource("DPITexture_3jrsr")
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1717259001]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_3jrsr")
+animation = &"closed"

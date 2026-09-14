@@ -1,8 +1,111 @@
 [gd_scene format=3 uid="uid://d1fn5bla4ak4m"]
 
 [ext_resource type="Script" uid="uid://b0y4jrf810l1f" path="res://src/scrn/transition/transition.gd" id="1_5f02e"]
+[ext_resource type="Shader" uid="uid://vqwx5m45jaud" path="res://src/scrn/transition/transition.gdshader" id="2_qv0lh"]
+
+[sub_resource type="Animation" id="Animation_qv0lh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/fill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jjimy"]
+resource_name = "transition_cover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/fill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0ada1"]
+resource_name = "transition_uncover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/fill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjimy"]
+_data = {
+&"RESET": SubResource("Animation_qv0lh"),
+&"transition_cover": SubResource("Animation_jjimy"),
+&"transition_uncover": SubResource("Animation_0ada1")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jrsr"]
+shader = ExtResource("2_qv0lh")
+shader_parameter/progress = 1.0
+shader_parameter/size = 40.0
+shader_parameter/fill = true
 
 [node name="Transition" type="CanvasLayer" unique_id=734273347]
 script = ExtResource("1_5f02e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=353275645]
+libraries/ = SubResource("AnimationLibrary_jjimy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=651260702]
+material = SubResource("ShaderMaterial_3jrsr")
+custom_minimum_size = Vector2(160, 144)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dp35qxonscviy"]
 
+[ext_resource type="Script" uid="uid://b5rbwsh2hdg6" path="res://src/scrn/main_menu/main_menu.gd" id="1_ds3mi"]
+[ext_resource type="Theme" uid="uid://cx74wks7mac3v" path="res://assets/ui/theme/main_theme.tres" id="2_lt057"]
+
 [node name="MainMenu" type="Control" unique_id=1135987903]
 layout_mode = 3
 anchors_preset = 15
@@ -7,8 +10,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ds3mi")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1165550846]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.011764706, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=467343959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=587770421]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=703333153]
+layout_mode = 2
+theme = ExtResource("2_lt057")
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=2.0]overgrowth[/wave]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=780277983]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=1929963743]
+layout_mode = 2
+theme = ExtResource("2_lt057")
+text = "play"
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=1939784959]
+layout_mode = 2
+theme = ExtResource("2_lt057")
+text = "levels"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/LevelButton" to="." method="_on_level_button_pressed"]

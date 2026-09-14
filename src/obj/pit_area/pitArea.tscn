@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqsaq7qomgp7x"]
+
+[ext_resource type="Script" uid="uid://bhmslaokkrwss" path="res://src/obj/pit_area/pit_area.gd" id="1_p1dv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jrsr"]
+size = Vector2(186, 20)
+
+[node name="PitArea" type="Area2D" unique_id=1512262154]
+script = ExtResource("1_p1dv0")
+metadata/_custom_type_script = "uid://cqosgonq76ks1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=532947256]
+position = Vector2(80, 144)
+shape = SubResource("RectangleShape2D_3jrsr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

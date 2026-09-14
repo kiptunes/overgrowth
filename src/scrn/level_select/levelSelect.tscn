@@ -1,5 +1,105 @@
 [gd_scene format=3 uid="uid://n0sw6aq48oem"]
 
+[ext_resource type="FontFile" uid="uid://dp34y1gs0ri70" path="res://assets/ui/fonts/5x7Levee.ttf" id="1_hcvrl"]
+[ext_resource type="Script" uid="uid://b6imng2u6yw7b" path="res://src/scrn/level_select/level_select.gd" id="1_yajse"]
+[ext_resource type="FontFile" uid="uid://nsdsgbcieomy" path="res://assets/ui/fonts/pirkkala.ttf" id="2_yajse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwugr"]
+content_margin_left = 0.0
+content_margin_top = 3.0
+content_margin_right = 0.0
+content_margin_bottom = 3.0
+bg_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77frk"]
+bg_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jrsr"]
+bg_color = Color(0.015686275, 0.011764706, 0.078431375, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skoc4"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my3s6"]
+bg_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+border_width_top = 1
+border_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1iiy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 2
+border_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_bjfka"]
+default_font_size = 6
+Button/font_sizes/font_size = 5
+Button/fonts/font = ExtResource("1_hcvrl")
+Button/styles/focus = SubResource("StyleBoxFlat_cwugr")
+Button/styles/hover = SubResource("StyleBoxFlat_77frk")
+Button/styles/normal = SubResource("StyleBoxFlat_3jrsr")
+Button/styles/pressed = SubResource("StyleBoxFlat_skoc4")
+HSeparator/styles/separator = SubResource("StyleBoxFlat_my3s6")
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_hcvrl")
+Panel/styles/panel = SubResource("StyleBoxFlat_c1iiy")
+RichTextLabel/colors/default_color = Color(0.26781008, 0.23531953, 0.53646374, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/paragraph_separation = 0
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/strikethrough_alpha = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/constants/underline_alpha = 0
+RichTextLabel/font_sizes/bold_font_size = 6
+RichTextLabel/font_sizes/bold_italics_font_size = 6
+RichTextLabel/font_sizes/italics_font_size = 6
+RichTextLabel/font_sizes/mono_font_size = 6
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = ExtResource("2_yajse")
+RichTextLabel/icons/horizontal_rule = null
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
 [node name="LevelSelect" type="Control" unique_id=462145610]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +107,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yajse")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=932148490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.011764706, 0.078431375, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1192857380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=726097955]
+layout_mode = 2
+columns = 3
+
+[node name="Button1" type="Button" parent="CenterContainer/GridContainer" unique_id=790737516]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "01"
+
+[node name="Button2" type="Button" parent="CenterContainer/GridContainer" unique_id=988094785]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "02"
+
+[node name="Button3" type="Button" parent="CenterContainer/GridContainer" unique_id=18748754]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "03"
+
+[node name="Button4" type="Button" parent="CenterContainer/GridContainer" unique_id=1059687064]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "04"
+
+[node name="Button5" type="Button" parent="CenterContainer/GridContainer" unique_id=1803147793]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "05"
+
+[node name="Button6" type="Button" parent="CenterContainer/GridContainer" unique_id=146549004]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(18, 18)
+layout_mode = 2
+theme = SubResource("Theme_bjfka")
+text = "06
+"
